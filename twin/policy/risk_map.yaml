@@ -1,0 +1,26 @@
+tools:
+  list_events:
+    base: read
+    escalate_if: []
+  get_event:
+    base: read
+    escalate_if: []
+  move_event:
+    base: reversible
+    escalate_if:
+      - field: attendee_count
+        op: ge
+        value: 3
+        to: irreversible-equivalent
+        reason: "Moving an event with many attendees requires approval."
+  cancel_event:
+    base: reversible
+    escalate_if:
+      - field: attendee_count
+        op: ge
+        value: 3
+        to: irreversible-equivalent
+        reason: "Canceling an event with many attendees requires approval."
+  default:
+    base: irreversible-equivalent
+    escalate_if: []

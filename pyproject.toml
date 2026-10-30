@@ -1,0 +1,20 @@
+[project]
+name = "twin-agent"
+version = "0.1.0"
+description = "Twin — a personal ops agent with risk-gated MCP tools"
+readme = "README.md"
+
+[project.urls]
+Repository = "https://github.com/jp9dotcom/twin-agent"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp>=1.0.0",
+  "pyyaml>=6.0.0",
+  "pydantic>=2.0.0",
+  "pytest>=8.0.0",
+  "ruff>=0.6.0",
+  "tzdata>=2025.2",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
